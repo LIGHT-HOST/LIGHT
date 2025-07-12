@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lod.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="panier.css">
+    <link rel="icon" href="images/lightning.png" type="image/x-icon">
+    <title>Cart</title>
+</head>
+<body>
+    <header>
+        <a href="local.html" class="logo">Light</a>
+        <nav class="navigation">
+            <a href="local.html">Home</a>
+            <a href="shopi.html">Shop</a>
+            <a href="local.html#services">Services</a>
+            <a href="local.html#contact">Contact</a>
+            <a href="about.html">About</a>
+            <a href="panier.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="signup.html" class="user-icon">
+                <i class="fas fa-user"></i>
+            </a>
+        </nav>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <form action="">
+    <div class="product-page">
+        <div class="product-gallery">
+          <div class="thumbnail">
+            <img src="images/ARDM.webp" alt="Arduino GIGA R1 WiFi">
+          </div>
+          <div class="thumbnails">
+            <img src="images/ARD (2).webp" alt="Thumbnail 1">
+            <img src="images/ARDM.webp" alt="Thumbnail 2">
+            <img src="images/ARDUI.jpg" alt="Thumbnail 3">
+            <img src="images/LCD.webp" alt="Thumbnail 4">
+          </div>
+        </div>
+    
+        <div class="product-details">
+          <h1>Arduino GIGA R1 WiFi</h1>
+          <p>SKU: ABX00063 - Barcode: 7630049203266</p>
+          <p><a href="#">Show more</a></p>
+          <div class="pricing">
+            <p class="old-price">€69,10</p>
+            <p class="current-price">€51,80</p>
+            <p class="vat">VAT included</p>
+            <p class="discount">Save 25%</p>
+          </div>
+          <label for="quantity">Quantity:</label>
+          <div class="quantity-selector">
+            <button>-</button>
+            <input type="number" id="quantity" value="1">
+            <button>+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="add-to-wishlist">Add to Wishlist</button>
+          <p class="availability">Availability: <span>In stock, ready to be shipped</span></p>
+        </div>
+      </div></form>
+    <div class="product-container">
+        <div class="product">
+            <div class="discount">SAVE 75%</div>
+            <img src="images/LCD.webp" >
+            <h3>ARDUINO LCD</h3>
+            <p class="original-price">$82.80</p>
+            <p class="price">$22.10</p>
+            <p class="rating">5.3 ★</p>
+            <div class="cart-icon"></div>
+        </div>
+        <div class="product">
+            <div class="discount">SAVE 25%</div>
+            <img src="images/ARDM.webp" >
+            <h3>ARDUINO MEGA</h3>
+            <p class="original-price">$82.80</p>
+            <p class="price">$62.10</p>
+            <p class="rating">4.3 ★</p>
+            <div class="cart-icon"></div>
+        </div>
+        <div class="product">
+            <div class="discount">SAVE 25%</div>
+            <img src="images/ARD1.webp" alt="Nicla Sense ME">
+            <h3>ARDUINO NANO</h3>
+            <p class="original-price">$82.80</p>
+            <p class="price">$12.10</p>
+            <p class="rating">4.3 ★</p>
+            <div class="cart-icon"></div>
+        </div>
+    </div>
+    <footer  class="footer" id="About Us">
+        <div class="footer-column">
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <a href="#">Social Media</a>
+            <a href="shopi.html">SHOP</a>
+        </div>
+        <div class="footer-column">
+            <a href="#services">Services</a>
+            <a href="#">Cookie Preferences</a>
+        </div>
+        <div class="footer-column">
+            <a href="#">Gift Cards</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">About</a>
+        </div>
+        <div class="footer-column">
+            <a href="#">Privacy</a>
+            <a href="#contact">Contact</a>
+        </div>
+         <div class="copyright">
+        &copy; 2024-2024 YAHYA.IM, Inc.
+    </div>
+    </footer>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navigation = document.querySelector('.navigation');
+        mobileMenuToggle.addEventListener('click', function() {
+            navigation.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.navigation a').forEach(link => {
+            link.addEventListener('click', function() {
+                navigation.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navigation.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                navigation.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navigation.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="shopi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="lod.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="images/lightning.png" type="image/x-icon">
+    <title>Product Discounts</title>
+</head>
+<body>
+    <header>
+        <a href="local.html" class="logo">Light</a>
+        <nav class="navigation">
+            <a href="local.html">Home</a>
+            <a href="shopi.html">Shop</a>
+            <a href="local.html#services">Services</a>
+            <a href="local.html#contact">Contact</a>
+            <a href="about.html">About</a>
+            <a href="panier.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="signup.html" class="user-icon">
+                <i class="fas fa-user"></i>
+            </a>
+        </nav>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Rest of your content -->
+    <form action="panier.html">
+        <h2 class="title">Products</h2>
+        <div class="product-container">
+            <!-- Product items go here -->
+        </div>
+    </form>
+
+    <!-- Footer -->
+    <footer class="footer" id="About Us">
+        <div class="footer-column">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <a href="#">Social Media</a>
+            <a href="shopi.html">SHOP</a>
+        </div>
+        <div class="footer-column">
+            <a href="#services">Services</a>
+            <a href="#">Cookie Preferences</a>
+        </div>
+        <div class="footer-column">
+            <a href="#">Gift Cards</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">About</a>
+        </div>
+        <div class="footer-column">
+            <a href="#">Privacy</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="copyright">
+            &copy; 2024-2024 YAHYA.IM, Inc.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navigation = document.querySelector('.navigation');
+        mobileMenuToggle.addEventListener('click', function() {
+            navigation.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.navigation a').forEach(link => {
+            link.addEventListener('click', function() {
+                navigation.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navigation.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                navigation.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navigation.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

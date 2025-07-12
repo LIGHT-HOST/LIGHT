@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="images/lightning.png" type="image/x-icon">
+    <title>Create Profile</title>
+</head>
+<body>
+    <header>
+        <a href="local.html" class="logo">Light</a>
+        <nav class="navigation">
+            <a href="local.html">Home</a>
+            <a href="shopi.html">Shop</a>
+            <a href="local.html#services">Services</a>
+            <a href="local.html#contact">Contact</a>
+            <a href="about.html">About</a>
+            <a href="panier.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="lod.html" class="user-icon">
+                <i class="fas fa-user"></i>
+            </a>
+        </nav>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        <div class="background-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        
+        <div class="signup-container">
+            <form class="signup-form" action="local.html" method="POST" autocomplete="off" novalidate>
+                <div class="profile-section">
+                    <div class="profile-picture">
+                        <img src="images/default-avatar.png" alt="Profile Picture" id="profile-preview">
+                        <div class="profile-upload">
+                            <i class="fas fa-camera"></i>
+                            <input type="file" id="profile-upload" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="form-header">
+                        <h2>Create Profile</h2>
+                        <p>Let's get you started with your account</p>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">1</div>
+                    <div class="progress-step" data-step="2">2</div>
+                    <div class="progress-step" data-step="3">3</div>
+                </div>
+
+                <fieldset class="form-section" data-section="1">
+                    <legend><i class="fas fa-user"></i> Personal Information</legend>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="fullname" id="fullname" required>
+                            <label for="fullname">Full Name</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" id="email" 
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                                   required>
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section" data-section="2" style="display: none;">
+                    <legend><i class="fas fa-phone"></i> Contact Information</legend>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" name="phone" id="phone" required>
+                            <label for="phone">Phone Number</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" name="location" id="location" required>
+                            <label for="location">Location</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section" data-section="3" style="display: none;">
+                    <legend><i class="fas fa-lock"></i> Security Information</legend>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" id="password" 
+                                   minlength="8" 
+                                   required>
+                            <label for="password">Password</label>
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="confirm-password" id="confirm-password" 
+                                   minlength="8" 
+                                   required>
+                            <label for="confirm-password">Confirm Password</label>
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                </fieldset>
+
+                <div class="nav-buttons">
+                    <button type="button" class="nav-btn prev-btn" style="display: none;">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button type="button" class="nav-btn next-btn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="form-footer">
+                    <p>Already have an account? <a href="lod.html">Sign In</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Profile picture preview
+        document.getElementById('profile-upload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-preview').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form navigation
+        let currentSection = 1;
+        const totalSections = 3;
+        const form = document.querySelector('.signup-form');
+        const sections = document.querySelectorAll('.form-section');
+        const steps = document.querySelectorAll('.progress-step');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        function showSection(sectionNumber) {
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.querySelector(`[data-section="${sectionNumber}"]`).style.display = 'block';
+
+            // Update progress steps
+            steps.forEach((step, index) => {
+                if (index + 1 < sectionNumber) {
+                    step.classList.add('completed');
+                    step.classList.remove('active');
+                } else if (index + 1 === sectionNumber) {
+                    step.classList.add('active');
+                    step.classList.remove('completed');
+                } else {
+                    step.classList.remove('active', 'completed');
+                }
+            });
+
+            // Show/hide navigation buttons
+            prevBtn.style.display = sectionNumber === 1 ? 'none' : 'block';
+            nextBtn.innerHTML = sectionNumber === totalSections ? 
+                'Create Account <i class="fas fa-check"></i>' : 
+                'Next <i class="fas fa-arrow-right"></i>';
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSection > 1) {
+                currentSection--;
+                showSection(currentSection);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const currentSectionElement = document.querySelector(`[data-section="${currentSection}"]`);
+            const inputs = currentSectionElement.querySelectorAll('input[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value) {
+                    isValid = false;
+                    input.classList.add('error');
+                } else {
+                    input.classList.remove('error');
+                }
+            });
+
+            if (isValid) {
+                if (currentSection < totalSections) {
+                    currentSection++;
+                    showSection(currentSection);
+                } else {
+                    form.submit(); // This will redirect to local.html
+                }
+            }
+        });
+
+        // Password visibility toggle
+        document.querySelectorAll('.toggle-password').forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navigation = document.querySelector('.navigation');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            navigation.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.navigation a').forEach(link => {
+            link.addEventListener('click', function() {
+                navigation.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navigation.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                navigation.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navigation.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html> 
